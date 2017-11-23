@@ -5,7 +5,7 @@ import testcode.ThreadRunnable;
 public class ThreadCommunication
 {
 	
-boolean test = false;
+public boolean test = false;
 
 public boolean endThreads = false;
 
@@ -26,7 +26,7 @@ ThreadRunning runThreads = new ThreadRunning();
         wait();
         if (endThreads == true)
             {
-        	runThreads.ThreadRunning();
+        	runThreads.testThreads();
             }
         else if (test == false)
             {
@@ -40,7 +40,7 @@ ThreadRunning runThreads = new ThreadRunning();
             System.out.println("sending recieved data is true");
             
             System.out.println("called threadRunning");
-            runThreads.ThreadRunning();
+            runThreads.testThreads();
             wait();
            
             

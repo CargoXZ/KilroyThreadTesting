@@ -15,6 +15,46 @@ public ThreadRunnable (long countUntil)
     this.countUntil = countUntil;
 }
 
+Thread t1 = new Thread(new Runnable()
+{
+	@Override
+	public void run ()
+	{
+		System.out.println(
+            "Begining of t1 run: " + Thread.currentThread());
+		try
+        {
+			threadComms.Thread1Comm();
+        }
+		catch (InterruptedException e)
+        {
+			e.printStackTrace();
+        }
+	}
+});
+
+// Create another thread object that calls
+// pc.consume()
+Thread t2 = new Thread(new Runnable()
+{
+	@Override
+	public void run ()
+	{
+		System.out.println(
+            "Begining of t2 run: " + Thread.currentThread());
+		try
+        {
+			threadComms.Thread2Comm();
+        }
+		catch (InterruptedException e)
+        {
+			e.printStackTrace();
+        }
+	}
+});
+
+
+
 public void run ()
 {
     System.out.println("Begining of Run: " + Thread.currentThread());
@@ -39,43 +79,9 @@ public void run ()
     // + " thread printing out its id " + countUntil);
     //
 
-    Thread t1 = new Thread(new Runnable()
-    {
-    @Override
-    public void run ()
-    {
-        System.out.println(
-                "Begining of t1 run: " + Thread.currentThread());
-        try
-            {
-            threadComms.Thread1Comm();
-            }
-        catch (InterruptedException e)
-            {
-            e.printStackTrace();
-            }
-    }
-    });
 
-    // Create another thread object that calls
-    // pc.consume()
-    Thread t2 = new Thread(new Runnable()
-    {
-    @Override
-    public void run ()
-    {
-        System.out.println(
-                "Begining of t2 run: " + Thread.currentThread());
-        try
-            {
-            threadComms.Thread2Comm();
-            }
-        catch (InterruptedException e)
-            {
-            e.printStackTrace();
-            }
-    }
-    });
+
+
 
     // Start both threads
     System.out.println("Starting T1 and T2");

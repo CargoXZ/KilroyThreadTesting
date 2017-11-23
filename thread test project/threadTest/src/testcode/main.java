@@ -7,12 +7,14 @@ import java.util.concurrent.Executors;
 
 public class main {
 	
-	//I added a comment in main to test GitHub.
+	// I added a comment in main to test GitHub.
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		System.out.println("in main");
 		ThreadRunning runThreads = new ThreadRunning();
-		 runThreads.ThreadRunning();
+		runThreads.testThreads();	 
+		System.out.println(" -END OF MAIN- ");
 	}
 	
 
