@@ -10,7 +10,7 @@ public boolean test = false;
 public boolean endThreads = false;
 
 public boolean recievedData = false;
-public boolean publicRecievedData = recievedData;
+// public boolean publicRecievedData = recievedData;
 
 public synchronized void Thread1Comm () throws InterruptedException
 {

@@ -4,15 +4,16 @@ package testcode;
 
 public class ThreadRunnable
 {
-private final long countUntil;
+
 
 public boolean done = false;
 
+// I feel like this might be the problem
 ThreadCommunication threadComms = new ThreadCommunication();
 
-public ThreadRunnable (long countUntil)
+public ThreadRunnable ()
 {
-    this.countUntil = countUntil;
+
 }
 
 Thread t1 = new Thread(new Runnable()
@@ -88,34 +89,36 @@ public void run ()
     t1.start();
     t2.start();
 
-
+    // this code doesn't appear to do anything because it only runs once
+    // before the other threads do their stuff
+    
     // t1 finishes before t2
     if (threadComms.recievedData == true
             || threadComms.endThreads == true)
-        {
+    {
         System.out.println("recieved that threadsCOmm has finished");
         try
-            {
+        {
             t1.join();
             System.out.println("joining thread 1");
-            }
+        }
         catch (InterruptedException e)
-            {
+        {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            }
+        }
         try
-            {
+        {
             t2.join();
             System.out.println("joining thread 2");
-            }
+        }
         catch (InterruptedException e)
-            {
+        {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            }
-        done = true;
         }
+        done = true;
+    }
 }
 
 }
